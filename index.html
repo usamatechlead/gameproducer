@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Usama | Game Project Manager & Producer</title>
+    <meta name="description" content="Experienced Game Project Manager and Producer with 8+ years managing the complete game development lifecycle, leading teams of 20+ across engineering, art, QA, and design.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-primary: #0c0c14;
+            --bg-secondary: #111119;
+            --bg-card: rgba(22, 22, 35, 0.75);
+            --border-color: rgba(251, 146, 60, 0.12);
+            --text-primary: #f0ede8;
+            --text-secondary: #a8a4b8;
+            --text-muted: #6e6b7a;
+            --accent-1: #f97316;
+            --accent-2: #fbbf24;
+            --accent-3: #fb923c;
+            --accent-glow: rgba(249, 115, 22, 0.15);
+            --gradient-1: linear-gradient(135deg, #f97316, #fbbf24);
+            --gradient-2: linear-gradient(135deg, #fb923c, #f59e0b);
+            --gradient-dark: linear-gradient(180deg, rgba(249, 115, 22, 0.05), transparent);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background Grid */
+        .bg-grid {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            background-size: 60px 60px;
+            background-image:
+                linear-gradient(rgba(249, 115, 22, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(249, 115, 22, 0.03) 1px, transparent 1px);
+            mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 30%, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 30%, transparent 70%);
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            backdrop-filter: blur(20px);
+            background: rgba(12, 12, 20, 0.85);
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .navbar.scrolled {
+            padding: 0.6rem 2rem;
+            background: rgba(12, 12, 20, 0.95);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-logo span {
+            font-weight: 400;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            -webkit-text-fill-color: var(--text-muted);
+            margin-left: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--accent-1); }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            border: 1px solid var(--border-color);
+            background: rgba(249, 115, 22, 0.06);
+            font-size: 0.8rem;
+            color: var(--accent-2);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-badge .dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: #22c55e;
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 0.5rem;
+            animation: fadeInUp 0.8s ease 0.1s both;
+        }
+
+        .hero h1 .gradient-text {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--accent-3);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-description {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            max-width: 540px;
+            animation: fadeInUp 0.8s ease 0.3s both;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 2rem;
+            background: var(--gradient-1);
+            color: #0c0c14;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(249, 115, 22, 0.35);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 2rem;
+            background: transparent;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(249, 115, 22, 0.08);
+            border-color: var(--accent-1);
+        }
+
+        /* Hero Dashboard Card */
+        .hero-visual {
+            animation: fadeInUp 0.8s ease 0.5s both;
+        }
+
+        .dashboard-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 0 40px rgba(249, 115, 22, 0.08), 0 25px 50px rgba(0,0,0,0.4);
+        }
+
+        .dash-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .dash-header h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .dash-live {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.7rem;
+            color: #22c55e;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .dash-live .dot { width: 6px; height: 6px; border-radius: 50%; background: #22c55e; animation: pulse-dot 2s infinite; }
+
+        .dash-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .metric {
+            padding: 1rem;
+            background: rgba(249, 115, 22, 0.05);
+            border: 1px solid rgba(249, 115, 22, 0.08);
+            border-radius: 12px;
+        }
+
+        .metric-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+
+        .metric-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .dash-progress {
+            margin-bottom: 1rem;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.4rem;
+        }
+
+        .progress-label { font-size: 0.8rem; color: var(--text-secondary); }
+        .progress-pct { font-size: 0.8rem; color: var(--accent-2); font-weight: 600; }
+
+        .progress-bar {
+            height: 6px;
+            background: rgba(249, 115, 22, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient-1);
+            border-radius: 3px;
+            transition: width 1.5s ease;
+        }
+
+        .dash-tasks {
+            list-style: none;
+        }
+
+        .dash-tasks li {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(249, 115, 22, 0.06);
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .dash-tasks li:last-child { border-bottom: none; }
+
+        .task-check {
+            width: 16px; height: 16px;
+            border-radius: 4px;
+            border: 2px solid var(--accent-1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.6rem;
+            flex-shrink: 0;
+        }
+
+        .task-check.done {
+            background: var(--accent-1);
+            color: #0c0c14;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            position: relative;
+            z-index: 1;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            background: rgba(17, 17, 25, 0.5);
+        }
+
+        .stats-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-item { text-align: center; }
+
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.25rem;
+        }
+
+        /* Section */
+        .section {
+            position: relative;
+            z-index: 1;
+            padding: 6rem 2rem;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header { margin-bottom: 3.5rem; }
+
+        .section-label {
+            font-size: 0.8rem;
+            color: var(--accent-1);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .section-title .gradient-text {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Competency Grid */
+        .competency-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .comp-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .comp-card:hover {
+            border-color: rgba(249, 115, 22, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 0 30px var(--accent-glow);
+        }
+
+        .comp-card-icon {
+            width: 44px; height: 44px;
+            border-radius: 12px;
+            background: rgba(249, 115, 22, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .comp-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .comp-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .comp-tag {
+            padding: 0.3rem 0.7rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            background: rgba(249, 115, 22, 0.06);
+            border: 1px solid rgba(249, 115, 22, 0.12);
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Timeline */
+        .timeline { position: relative; padding-left: 2.5rem; }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--accent-1), var(--accent-2), transparent);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(249, 115, 22, 0.06);
+        }
+
+        .timeline-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+
+        .timeline-dot {
+            position: absolute;
+            left: -2.85rem; top: 0.3rem;
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            background: var(--accent-1);
+            border: 3px solid var(--bg-primary);
+            box-shadow: 0 0 0 2px var(--accent-1);
+        }
+
+        .timeline-item.current .timeline-dot {
+            background: #22c55e;
+            box-shadow: 0 0 0 2px #22c55e, 0 0 15px rgba(34, 197, 94, 0.3);
+            animation: pulse-dot 2s infinite;
+        }
+
+        .timeline-date { font-size: 0.78rem; color: var(--accent-2); margin-bottom: 0.5rem; font-weight: 600; }
+        .timeline-role { font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.2rem; }
+        .timeline-company { font-size: 0.9rem; color: var(--accent-3); font-weight: 500; margin-bottom: 1rem; }
+
+        .timeline-bullets { list-style: none; }
+
+        .timeline-bullets li {
+            position: relative;
+            padding-left: 1.25rem;
+            margin-bottom: 0.6rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .timeline-bullets li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent-1);
+        }
+
+        /* Info Cards */
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .info-card:hover { border-color: rgba(249, 115, 22, 0.3); box-shadow: 0 0 30px var(--accent-glow); }
+        .info-card-icon { font-size: 2rem; margin-bottom: 1rem; }
+        .info-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .info-card p { font-size: 0.9rem; color: var(--text-secondary); }
+        .info-card .highlight { color: var(--accent-2); font-weight: 600; }
+
+        /* Contact */
+        .contact-section {
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.06), rgba(251, 191, 36, 0.03));
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            border-color: var(--accent-1);
+            transform: translateY(-2px);
+        }
+
+        .contact-icon {
+            width: 44px; height: 44px;
+            border-radius: 12px;
+            background: rgba(249, 115, 22, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+        .contact-value { font-size: 0.9rem; font-weight: 500; }
+
+        /* Footer */
+        .footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 3rem 2rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-inner { grid-template-columns: 1fr; text-align: center; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero-description { max-width: 100%; }
+            .hero-actions { justify-content: center; flex-wrap: wrap; }
+            .hero-visual { order: -1; }
+            .stats-inner { grid-template-columns: repeat(2, 1fr); }
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex; flex-direction: column; position: absolute;
+                top: 100%; left: 0; right: 0; background: rgba(12, 12, 20, 0.98);
+                padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-color); gap: 1rem;
+            }
+            .mobile-toggle { display: block; }
+            .competency-grid, .info-cards { grid-template-columns: 1fr; }
+            .timeline { padding-left: 1.5rem; }
+            .timeline-dot { left: -1.85rem; }
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-primary); }
+        ::-webkit-scrollbar-thumb { background: var(--accent-1); border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+    <div class="nav-inner">
+        <div class="nav-logo">MU<span>// producer</span></div>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">☰</button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#competencies">Competencies</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="about">
+    <div class="hero-inner">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="dot"></span>
+                Open to opportunities
+            </div>
+            <h1>Muhammad<br><span class="gradient-text">Usama</span></h1>
+            <div class="hero-subtitle">Game Project Manager & Producer</div>
+            <p class="hero-description">
+                8+ years managing the complete game development lifecycle from pre-production through launch. 
+                Leading cross-functional teams of 20+ across engineering, art, QA, and design — delivering hit titles to WebGL, mobile, and PC markets.
+            </p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn-primary">📬 Connect</a>
+                <a href="#experience" class="btn-secondary">📄 Career Timeline</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="dashboard-card">
+                <div class="dash-header">
+                    <h3>📊 Project Dashboard</h3>
+                    <div class="dash-live"><span class="dot"></span> Live</div>
+                </div>
+                <div class="dash-metrics">
+                    <div class="metric">
+                        <div class="metric-label">Active Projects</div>
+                        <div class="metric-value">5</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Team Size</div>
+                        <div class="metric-value">20+</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Sprint</div>
+                        <div class="metric-value">#14</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Velocity</div>
+                        <div class="metric-value">94%</div>
+                    </div>
+                </div>
+                <div class="dash-progress">
+                    <div class="progress-header">
+                        <span class="progress-label">WebGL Release — CrazyGames</span>
+                        <span class="progress-pct">87%</span>
+                    </div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 87%;"></div></div>
+                </div>
+                <div class="dash-progress">
+                    <div class="progress-header">
+                        <span class="progress-label">Mobile Build — Android/iOS</span>
+                        <span class="progress-pct">64%</span>
+                    </div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 64%;"></div></div>
+                </div>
+                <ul class="dash-tasks">
+                    <li><span class="task-check done">✓</span> ClickUp sprint board configured</li>
+                    <li><span class="task-check done">✓</span> KPI review with HR complete</li>
+                    <li><span class="task-check"></span> Optimization benchmarks review</li>
+                    <li><span class="task-check"></span> GameDistribution SDK deploy</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats -->
+<div class="stats-bar">
+    <div class="stats-inner">
+        <div class="stat-item fade-in">
+            <div class="stat-number" data-target="8">0</div>
+            <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item fade-in">
+            <div class="stat-number" data-target="20">0</div>
+            <div class="stat-label">Team Members Led</div>
+        </div>
+        <div class="stat-item fade-in">
+            <div class="stat-number" data-target="7">0</div>
+            <div class="stat-label">Organizations</div>
+        </div>
+        <div class="stat-item fade-in">
+            <div class="stat-number" data-target="3">0</div>
+            <div class="stat-label">WebGL Portals</div>
+        </div>
+    </div>
+</div>
+
+<!-- Core Competencies -->
+<section class="section" id="competencies">
+    <div class="section-inner">
+        <div class="section-header fade-in">
+            <div class="section-label">Core Competencies</div>
+            <h2 class="section-title">Management <span class="gradient-text">Arsenal</span></h2>
+        </div>
+        <div class="competency-grid">
+            <div class="comp-card fade-in">
+                <div class="comp-card-icon">📋</div>
+                <h3>Project Management</h3>
+                <div class="comp-tags">
+                    <span class="comp-tag">Full Lifecycle</span>
+                    <span class="comp-tag">Agile/Scrum</span>
+                    <span class="comp-tag">Sprint Planning</span>
+                    <span class="comp-tag">Milestone Tracking</span>
+                    <span class="comp-tag">Risk Mitigation</span>
+                    <span class="comp-tag">Roadmap Planning</span>
+                </div>
+            </div>
+            <div class="comp-card fade-in">
+                <div class="comp-card-icon">👥</div>
+                <h3>Leadership</h3>
+                <div class="comp-tags">
+                    <span class="comp-tag">Cross-Functional Teams (20+)</span>
+                    <span class="comp-tag">Mentoring</span>
+                    <span class="comp-tag">Hiring</span>
+                    <span class="comp-tag">Team Building</span>
+                    <span class="comp-tag">KPIs/KRAs</span>
+                </div>
+            </div>
+            <div class="comp-card fade-in">
+                <div class="comp-card-icon">🤝</div>
+                <h3>Stakeholder Management</h3>
+                <div class="comp-tags">
+                    <span class="comp-tag">Client Communication</span>
+                    <span class="comp-tag">Requirements Gathering</span>
+                    <span class="comp-tag">Status Reporting</span>
+                    <span class="comp-tag">Vendor Relations</span>
+                </div>
+            </div>
+            <div class="comp-card fade-in">
+                <div class="comp-card-icon">⚙️</div>
+                <h3>Production & Operations</h3>
+                <div class="comp-tags">
+                    <span class="comp-tag">Resource Allocation</span>
+                    <span class="comp-tag">Capacity Planning</span>
+                    <span class="comp-tag">QA Oversight</span>
+                    <span class="comp-tag">Process Improvement</span>
+                </div>
+            </div>
+            <div class="comp-card fade-in">
+                <div class="comp-card-icon">🛠️</div>
+                <h3>Tools</h3>
+                <div class="comp-tags">
+                    <span class="comp-tag">ClickUp</span>
+                    <span class="comp-tag">Jira</span>
+                    <span class="comp-tag">Hack n Plan</span>
+                    <span class="comp-tag">Confluence</span>
+                    <span class="comp-tag">Slack</span>
+                    <span class="comp-tag">Discord</span>
+                </div>
+            </div>
+            <div class="comp-card fade-in">
+                <div class="comp-card-icon">🎮</div>
+                <h3>Domain Expertise</h3>
+                <div class="comp-tags">
+                    <span class="comp-tag">WebGL Portals</span>
+                    <span class="comp-tag">Mobile (Android/iOS)</span>
+                    <span class="comp-tag">PC</span>
+                    <span class="comp-tag">Multiplayer</span>
+                    <span class="comp-tag">Metaverse</span>
+                    <span class="comp-tag">AR/VR</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Experience -->
+<section class="section" id="experience" style="background: rgba(17,17,25,0.3);">
+    <div class="section-inner">
+        <div class="section-header fade-in">
+            <div class="section-label">Track Record</div>
+            <h2 class="section-title">Career <span class="gradient-text">Timeline</span></h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item current fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Feb 2025 – Present</div>
+                <div class="timeline-role">Technical Lead Developer & Project Manager</div>
+                <div class="timeline-company">MinorBugs</div>
+                <ul class="timeline-bullets">
+                    <li>Manage multiple concurrent project lifecycles across engineering, art, design, and QA.</li>
+                    <li>Spearheaded the end-to-end implementation and full administration of ClickUp, standardizing task management.</li>
+                    <li>Collaborated with HR to roll out an employee performance system via paypeople.pk, defining comprehensive KPIs and KRAs.</li>
+                    <li>Defined strict game optimization benchmarks for developers and 2D/3D artists, authoring detailed guideline documentation.</li>
+                    <li>Managed SDK integrations and launched optimized titles to CrazyGames, GamePix, and GameDistribution.</li>
+                    <li>Lead a team of 20+, conducting daily stand-ups, sprint planning, and performance reviews.</li>
+                </ul>
+            </div>
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Mar 2024 – Feb 2025</div>
+                <div class="timeline-role">Project Manager</div>
+                <div class="timeline-company">Ingenious Concepts</div>
+                <ul class="timeline-bullets">
+                    <li>Led project acquisition and managed end-to-end client communication.</li>
+                    <li>Coordinated cross-functional teams to deliver projects on schedule and within scope.</li>
+                    <li>Contributed to system architecture decisions, bridging technical feasibility and business goals.</li>
+                </ul>
+            </div>
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Sep 2023 – Feb 2024</div>
+                <div class="timeline-role">Lead Developer & Project Coordinator (Remote)</div>
+                <div class="timeline-company">International Client — Malaysia</div>
+                <ul class="timeline-bullets">
+                    <li>Managed the development pipeline for a Metaverse project with a remote team of 4.</li>
+                    <li>Established project timelines, milestone checkpoints, and quality gates.</li>
+                </ul>
+            </div>
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">May 2022 – May 2023</div>
+                <div class="timeline-role">Lead Developer & Production Lead</div>
+                <div class="timeline-company">Arhamsoft</div>
+                <ul class="timeline-bullets">
+                    <li>Led a cross-functional team of 8, managing Jira sprints and comprehensive GDD documentation.</li>
+                    <li>Managed both service-based and product-based game projects concurrently.</li>
+                    <li>Played key role in hiring, conducting technical assessments for the Gaming Department.</li>
+                </ul>
+            </div>
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Mar 2021 – Oct 2021</div>
+                <div class="timeline-role">Lead Developer & Team Manager</div>
+                <div class="timeline-company">Mizo Studios</div>
+                <ul class="timeline-bullets">
+                    <li>Supervised 20+ professionals, managing resource allocation and workload distribution.</li>
+                    <li>Implemented Agile project management using Hack n Plan.</li>
+                </ul>
+            </div>
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Mar 2020 – Feb 2021</div>
+                <div class="timeline-role">Sr. Game Developer & Team Lead</div>
+                <div class="timeline-company">Glixen Technologies</div>
+                <ul class="timeline-bullets">
+                    <li>Directed a team of 10, managing daily task assignments and cross-discipline coordination.</li>
+                </ul>
+            </div>
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Nov 2018 – Feb 2020</div>
+                <div class="timeline-role">Sr. Game Developer</div>
+                <div class="timeline-company">MegaSoftware Tech</div>
+                <ul class="timeline-bullets">
+                    <li>Delivered numerous client-facing game projects coordinating with QA, Product, and Design.</li>
+                </ul>
+            </div>
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Aug 2017 – Oct 2018</div>
+                <div class="timeline-role">Unity Game Developer</div>
+                <div class="timeline-company">Galassia Studios</div>
+                <ul class="timeline-bullets">
+                    <li>Delivered multiple mobile game titles on Android and iOS platforms.</li>
+                    <li>Coordinated monetization strategies including ad integration and in-app purchases.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Education & Awards -->
+<section class="section" id="education">
+    <div class="section-inner">
+        <div class="section-header fade-in">
+            <div class="section-label">Credentials</div>
+            <h2 class="section-title">Education & <span class="gradient-text">Awards</span></h2>
+        </div>
+        <div class="info-cards">
+            <div class="info-card fade-in">
+                <div class="info-card-icon">🎓</div>
+                <h3>Bachelor of Computer Sciences</h3>
+                <p>Qarshi University, Lahore, Pakistan</p>
+                <p><span class="highlight">2011 – 2015</span></p>
+                <p style="margin-top:0.5rem;font-size:0.85rem;color:var(--text-muted);">Majors: Computer Architecture, AI, System Programming</p>
+            </div>
+            <div class="info-card fade-in">
+                <div class="info-card-icon">🏆</div>
+                <h3>Employee of the Year</h3>
+                <p>MegaSoftware Tech</p>
+                <p><span class="highlight">2019</span></p>
+            </div>
+            <div class="info-card fade-in">
+                <div class="info-card-icon">⭐</div>
+                <h3>Rising Star</h3>
+                <p>Galassia Studios</p>
+                <p><span class="highlight">2018</span></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section class="section contact-section" id="contact">
+    <div class="section-inner">
+        <div class="section-header fade-in">
+            <div class="section-label">Let's Connect</div>
+            <h2 class="section-title">Get in <span class="gradient-text">Touch</span></h2>
+        </div>
+        <div class="contact-grid">
+            <a href="mailto:usama.techlead@gmail.com" class="contact-item fade-in">
+                <div class="contact-icon">📧</div>
+                <div><div class="contact-label">Email</div><div class="contact-value">usama.techlead@gmail.com</div></div>
+            </a>
+            <a href="tel:+923244146267" class="contact-item fade-in">
+                <div class="contact-icon">📱</div>
+                <div><div class="contact-label">Phone</div><div class="contact-value">+92-324-4146267</div></div>
+            </a>
+            <a href="https://www.linkedin.com/in/muhammad-usama-altaf-b28745b6" target="_blank" class="contact-item fade-in">
+                <div class="contact-icon">💼</div>
+                <div><div class="contact-label">LinkedIn</div><div class="contact-value">Muhammad Usama</div></div>
+            </a>
+            <a href="https://docs.google.com/document/d/1c5iWzGud0JL_L5rK0AVDyOUh39fN39am4c5HylikqsE/edit" target="_blank" class="contact-item fade-in">
+                <div class="contact-icon">🎨</div>
+                <div><div class="contact-label">Portfolio</div><div class="contact-value">View Online Portfolio</div></div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <p>© 2025 Muhammad Usama. Built for impact.</p>
+</footer>
+
+<script>
+    // Navbar scroll
+    window.addEventListener('scroll', () => {
+        document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Mobile menu
+    document.getElementById('mobile-toggle').addEventListener('click', () => {
+        document.getElementById('nav-links').classList.toggle('open');
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Counter animation
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const target = parseInt(el.getAttribute('data-target'));
+                let current = 0;
+                const step = Math.ceil(target / 40);
+                const interval = setInterval(() => {
+                    current += step;
+                    if (current >= target) { current = target; clearInterval(interval); }
+                    el.textContent = current + '+';
+                }, 40);
+                counterObserver.unobserve(el);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.stat-number').forEach(el => counterObserver.observe(el));
+</script>
+
+</body>
+</html>
